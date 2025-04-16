@@ -1,64 +1,68 @@
 "use client";
 
-import { artistInfo } from "../data/content";
-import AnimatedText from "../../components/AnimatedText";
-import AnimatedSection from "../../components/AnimatedSection";
-import Navbar from "../components/Navbar";
 import ContactForm from "../components/ContactForm";
+import Navbar from "../components/Navbar";
+import { artistInfo } from "../data/content";
 
-export default function ContactPage() {
+export default function Contact() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-950 to-emerald-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-blue-950 to-emerald-900 text-white">
       <Navbar />
-      <div className="max-w-7xl mx-auto px-4 py-24">
-        <AnimatedText
-          type="heading"
-          className="text-4xl md:text-6xl font-bold mb-8 text-center"
-        >
-          Contact
-        </AnimatedText>
-
-        <AnimatedSection className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      
+      <div className="max-w-4xl mx-auto px-4 py-16">
+        <h1 className="text-4xl font-bold mb-8">Contact</h1>
+        
+        <div className="grid md:grid-cols-2 gap-12">
           <div className="space-y-8">
             <div>
-              <h3 className="font-semibold text-lg text-emerald-100">Booking Inquiries</h3>
-              <a href={`mailto:${artistInfo.email}`} className="text-emerald-200 hover:text-emerald-300">
-                {artistInfo.email}
-              </a>
+              <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
+              <p className="text-emerald-200 mb-6">
+                For booking inquiries, press requests, or general information, please use the contact form or reach out directly to the appropriate contact below.
+              </p>
             </div>
-            <div>
-              <h3 className="font-semibold text-lg text-emerald-100">Press Inquiries</h3>
-              <a href={`mailto:${artistInfo.email}`} className="text-emerald-200 hover:text-emerald-300">
-                {artistInfo.email}
-              </a>
+
+            <div className="space-y-6">
+              <div>
+                <h3 className="font-semibold text-lg text-emerald-100">Booking Inquiries</h3>
+                <a href={`mailto:${artistInfo.email}`} className="text-emerald-200 hover:text-emerald-300">
+                  {artistInfo.email}
+                </a>
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg text-emerald-100">Press Inquiries</h3>
+                <a href={`mailto:${artistInfo.pressEmail}`} className="text-emerald-200 hover:text-emerald-300">
+                  {artistInfo.pressEmail}
+                </a>
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg text-emerald-100">Management</h3>
+                <a href={`mailto:${artistInfo.email}`} className="text-emerald-200 hover:text-emerald-300">
+                  {artistInfo.email}
+                </a>
+              </div>
             </div>
+
             <div>
-              <h3 className="font-semibold text-lg text-emerald-100">Management</h3>
-              <a href={`mailto:${artistInfo.email}`} className="text-emerald-200 hover:text-emerald-300">
-                {artistInfo.email}
-              </a>
-            </div>
-            <div>
-              <h3 className="font-semibold text-lg text-emerald-100 mb-4">Social Media</h3>
-              <div className="flex gap-4">
-                {Object.entries(artistInfo.social).map(([platform, url]) => (
-                  <a
-                    key={platform}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-2xl text-emerald-200 hover:text-emerald-300 transition-colors"
-                  >
-                    {platform === 'twitter' ? '𝕏' : platform.charAt(0).toUpperCase() + platform.slice(1)}
-                  </a>
-                ))}
+              <h3 className="font-semibold text-lg mb-4 text-emerald-100">Social Media</h3>
+              <div className="flex space-x-4">
+                <a href={artistInfo.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="text-emerald-200 hover:text-emerald-300">
+                  Instagram
+                </a>
+                <a href={artistInfo.socialMedia.twitter} target="_blank" rel="noopener noreferrer" className="text-emerald-200 hover:text-emerald-300">
+                  Twitter
+                </a>
+                <a href={artistInfo.socialMedia.youtube} target="_blank" rel="noopener noreferrer" className="text-emerald-200 hover:text-emerald-300">
+                  YouTube
+                </a>
               </div>
             </div>
           </div>
-          <div>
+
+          <div className="bg-indigo-800/30 backdrop-blur-sm p-6 rounded-lg">
+            <h2 className="text-2xl font-semibold mb-4">Send a Message</h2>
             <ContactForm />
           </div>
-        </AnimatedSection>
+        </div>
       </div>
     </div>
   );
