@@ -99,7 +99,6 @@ export default function Home() {
                                 <div className="bg-indigo-900/50 p-4 rounded-lg">
                                   <h4 className="text-lg font-semibold text-white">{track.title}</h4>
                                   <p className="text-emerald-200 text-sm">{track.duration}</p>
-                                  <p className="text-emerald-300 text-sm mt-1">{track.description}</p>
                                 </div>
                               </AnimatedSection>
                             ))}
@@ -169,13 +168,13 @@ export default function Home() {
                     <div className="aspect-w-1 aspect-h-1">
                       <Image
                         src={photo.image}
-                        alt={photo.alt}
+                        alt={photo.caption}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent p-4 flex items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <p className="text-white text-sm">{photo.alt}</p>
+                      <p className="text-white text-sm">{photo.caption}</p>
                     </div>
                   </div>
                 </AnimatedSection>
@@ -189,19 +188,22 @@ export default function Home() {
       <AnimatedSection delay={0.5}>
         <section className="py-20 px-4">
           <div className="max-w-7xl mx-auto">
-            <AnimatedText type="heading" className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            <AnimatedText
+              type="heading"
+              className="text-3xl md:text-4xl font-bold mb-8 text-center"
+            >
               Downloads
             </AnimatedText>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {downloads.map((download, index) => (
-                <AnimatedSection key={index} delay={0.1 * index}>
+              {Object.entries(downloads).map(([key, download], index) => (
+                <AnimatedSection key={key} delay={0.1 * index}>
                   <div className="p-6 bg-indigo-800/30 backdrop-blur-sm rounded-lg hover:bg-indigo-800/50 transition-all duration-300">
                     <h3 className="text-xl font-bold mb-2 font-playfair">{download.title}</h3>
-                    <p className="text-emerald-200 mb-4">{download.description}</p>
+                    <p className="text-indigo-200 mb-4">{download.description}</p>
                     <a
                       href={download.url}
+                      className="inline-block px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors duration-300"
                       download
-                      className="inline-block px-4 py-2 bg-emerald-500 hover:bg-emerald-600 rounded-full transition-all duration-300 transform hover:scale-105"
                     >
                       Download
                     </a>
@@ -231,23 +233,17 @@ export default function Home() {
                 >
                   {artistInfo.email}
                 </a>
-                <a
-                  href={`mailto:${artistInfo.pressEmail}`}
-                  className="block text-emerald-200 hover:text-emerald-300 transition-colors"
-                >
-                  {artistInfo.pressEmail}
-                </a>
               </div>
               <div className="flex justify-center gap-6 mt-8">
-                {Object.entries(artistInfo.socialMedia).map(([platform, url], index) => (
+                {Object.entries(artistInfo.social).map(([platform, url], index) => (
                   <AnimatedSection key={platform} delay={0.1 * index}>
                     <a
                       href={url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-2xl hover:text-emerald-300 transition-colors"
+                      className="text-2xl text-emerald-200 hover:text-emerald-300 transition-colors"
                     >
-                      {platform.charAt(0).toUpperCase() + platform.slice(1)}
+                      {platform === 'twitter' ? '𝕏' : platform.charAt(0).toUpperCase() + platform.slice(1)}
                     </a>
                   </AnimatedSection>
                 ))}
