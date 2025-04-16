@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { artistInfo } from "../data/content";
 import AnimatedText from "../../components/AnimatedText";
 import AnimatedSection from "../../components/AnimatedSection";
@@ -23,11 +24,13 @@ export default function AboutPage() {
               {artistInfo.bio}
             </AnimatedText>
           </div>
-          <div className="relative">
-            <img
+          <div className="relative h-[500px]">
+            <Image
               src="/images/Kama 1.png"
               alt="Kama"
-              className="w-full h-auto rounded-lg shadow-2xl"
+              fill
+              className="object-cover rounded-lg shadow-2xl"
+              priority
             />
           </div>
         </AnimatedSection>
