@@ -1,131 +1,73 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { artistInfo } from '../data/content';
+import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    inquiryType: 'Booking',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus('loading');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send message');
-      }
-
-      setStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        inquiryType: 'Booking',
-        message: ''
-      });
-    } catch (error) {
-      setStatus('error');
-    }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    // Handle form submission
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <motion.form
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      onSubmit={handleSubmit}
+      className="max-w-2xl mx-auto space-y-6"
+    >
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="name" className="block text-sm font-medium text-emerald-100">
           Name
         </label>
         <input
           type="text"
           id="name"
-          name="name"
           value={formData.name}
-          onChange={handleChange}
+          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 bg-gray-800 text-white"
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500 dark:bg-gray-800 dark:border-gray-700"
         />
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="email" className="block text-sm font-medium text-emerald-100">
           Email
         </label>
         <input
           type="email"
           id="email"
-          name="email"
           value={formData.email}
-          onChange={handleChange}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 bg-gray-800 text-white"
           required
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500 dark:bg-gray-800 dark:border-gray-700"
         />
       </div>
       <div>
-        <label htmlFor="inquiryType" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-          Type of Inquiry
-        </label>
-        <select
-          id="inquiryType"
-          name="inquiryType"
-          value={formData.inquiryType}
-          onChange={handleChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500 dark:bg-gray-800 dark:border-gray-700"
-        >
-          <option>Booking</option>
-          <option>Press</option>
-          <option>General</option>
-        </select>
-      </div>
-      <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label htmlFor="message" className="block text-sm font-medium text-emerald-100">
           Message
         </label>
         <textarea
           id="message"
-          name="message"
           value={formData.message}
-          onChange={handleChange}
-          required
+          onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           rows={4}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring-gray-500 dark:bg-gray-800 dark:border-gray-700"
+          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-emerald-500 focus:ring-emerald-500 bg-gray-800 text-white"
+          required
         />
       </div>
       <button
         type="submit"
-        disabled={status === 'loading'}
-        className="w-full bg-gray-900 text-white py-2 px-4 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 dark:bg-gray-700 dark:hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full bg-gradient-to-r from-emerald-500 to-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:from-emerald-600 hover:to-blue-600 transition-all duration-300"
       >
-        {status === 'loading' ? 'Sending...' : 'Send Inquiry'}
+        Send Message
       </button>
-      {status === 'success' && (
-        <p className="text-green-600 dark:text-green-400 text-center">
-          Message sent successfully!
-        </p>
-      )}
-      {status === 'error' && (
-        <p className="text-red-600 dark:text-red-400 text-center">
-          Failed to send message. Please try again.
-        </p>
-      )}
-    </form>
+    </motion.form>
   );
 } 

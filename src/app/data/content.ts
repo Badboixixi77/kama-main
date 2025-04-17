@@ -17,20 +17,6 @@ export interface Work {
   tracks?: Track[];
 }
 
-interface ArtistInfo {
-  name: string;
-  bio: string;
-  email: string;
-  pressEmail: string;
-  socialMedia: {
-    instagram: string;
-    twitter: string;
-    facebook: string;
-    youtube: string;
-    spotify: string;
-  };
-}
-
 interface PressQuote {
   id: number;
   quote: string;
@@ -39,16 +25,14 @@ interface PressQuote {
 }
 
 export const artistInfo = {
-  name: "Kama",
-  bio: "Hailing from the vibrant streets of Lagos, Kama is a rising star in the Afro-pop scene, blending traditional Nigerian rhythms with contemporary sounds. With roots deeply embedded in Igbo culture and a modern twist that resonates globally, Kama's music is a celebration of African heritage and contemporary expression. His unique sound fuses Afrobeat, Highlife, and modern pop elements, creating a musical experience that bridges generations and cultures.",
+  name: "KAMA",
   email: "officialkamap@gmail.com",
-  phone: "09043165615",
-  pressEmail: "officialkamap@gmail.com",
-  socialMedia: {
-    instagram: "https://instagram.com/kamaofficial",
-    twitter: "https://twitter.com/kamaofficial",
-    facebook: "https://facebook.com/kamaofficial",
-    youtube: "https://youtube.com/@kamaofficial"
+  socials: {
+    instagram: "https://www.instagram.com/kama_pizy/",
+    twitter: "https://x.com/kama_pizy?s=21",
+    spotify: "https://open.spotify.com/artist/0q5YQpXQHqQqQqQqQqQqQq",
+    youtube: "https://www.youtube.com/@kama_pizy",
+    soundcloud: "https://soundcloud.com/kama_pizy",
   },
 };
 
@@ -82,6 +66,7 @@ export const featuredWorks = [
     image: "/images/The Fisherman.png",
     spotify: "https://open.spotify.com/artist/2HU1ekoHx4Jqb5kEGLZIgT?si=6lt7FpZxTLKmc80RtKGMyQ",
     appleMusic: "https://music.apple.com/album/the-fisherman",
+    ep: "The Fisherman",
     tracks: [
       {
         title: "No Love",
@@ -120,22 +105,6 @@ export const featuredWorks = [
         audioUrl: "/audio/idi-mma.mp3"
       }
     ]
-  },
-  {
-    id: 2,
-    title: "Single Release",
-    type: "Single",
-    date: "2023",
-    image: "/images/single-cover.jpg",
-    spotify: "https://open.spotify.com/artist/your-spotify-id",
-    appleMusic: "https://music.apple.com/artist/your-apple-music-id",
-    tracks: [
-      {
-        title: "Track Name",
-        duration: "3:30",
-        description: "Description of the track"
-      }
-    ]
   }
 ];
 
@@ -154,12 +123,7 @@ export const pressPhotos = [
     id: 3,
     image: "/images/Kama 3.png",
     alt: "Kama portrait",
-  },
-  {
-    id: 4,
-    image: "/images/Kama 4.png",
-    alt: "Kama artistic shot",
-  },
+  }
 ];
 
 export const downloads = [

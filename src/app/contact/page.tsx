@@ -30,8 +30,8 @@ export default function Contact() {
               </div>
               <div>
                 <h3 className="font-semibold text-lg text-emerald-100">Press Inquiries</h3>
-                <a href={`mailto:${artistInfo.pressEmail}`} className="text-emerald-200 hover:text-emerald-300">
-                  {artistInfo.pressEmail}
+                <a href={`mailto:${artistInfo.email}`} className="text-emerald-200 hover:text-emerald-300">
+                  {artistInfo.email}
                 </a>
               </div>
               <div>
@@ -44,15 +44,21 @@ export default function Contact() {
 
             <div>
               <h3 className="font-semibold text-lg mb-4 text-emerald-100">Social Media</h3>
-              <div className="flex space-x-4">
-                <a href={artistInfo.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="text-emerald-200 hover:text-emerald-300">
+              <div className="flex flex-wrap gap-4">
+                <a href={artistInfo.socials.instagram} target="_blank" rel="noopener noreferrer" className="text-emerald-200 hover:text-emerald-300">
                   Instagram
                 </a>
-                <a href={artistInfo.socialMedia.twitter} target="_blank" rel="noopener noreferrer" className="text-emerald-200 hover:text-emerald-300">
+                <a href={artistInfo.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-emerald-200 hover:text-emerald-300">
                   Twitter
                 </a>
-                <a href={artistInfo.socialMedia.youtube} target="_blank" rel="noopener noreferrer" className="text-emerald-200 hover:text-emerald-300">
+                <a href={artistInfo.socials.youtube} target="_blank" rel="noopener noreferrer" className="text-emerald-200 hover:text-emerald-300">
                   YouTube
+                </a>
+                <a href={artistInfo.socials.spotify} target="_blank" rel="noopener noreferrer" className="text-emerald-200 hover:text-emerald-300">
+                  Spotify
+                </a>
+                <a href={artistInfo.socials.soundcloud} target="_blank" rel="noopener noreferrer" className="text-emerald-200 hover:text-emerald-300">
+                  SoundCloud
                 </a>
               </div>
             </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { artistInfo } from "../data/content";
 import AnimatedSection from "../../components/AnimatedSection";
 import AnimatedText from "../../components/AnimatedText";
@@ -36,7 +35,7 @@ export default function About() {
             <div className="relative">
               <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-emerald-400 to-blue-400 rounded-full"></div>
               <AnimatedText type="paragraph" delay={0.2} className="text-xl md:text-2xl text-center mb-12 leading-relaxed text-emerald-100">
-                {artistInfo.bio}
+                Hailing from the vibrant streets of Lagos, Kama is a rising star in the Afro-pop scene, blending traditional Nigerian rhythms with contemporary sounds. With roots deeply embedded in Igbo culture and a modern twist that resonates globally, Kama&apos;s music is a celebration of African heritage and contemporary expression.
               </AnimatedText>
             </div>
           </div>
@@ -80,12 +79,6 @@ export default function About() {
               <div className="space-y-6">
                 <AnimatedText type="paragraph" delay={0.2} className="text-lg text-emerald-100">
                   Email: {artistInfo.email}
-                </AnimatedText>
-                <AnimatedText type="paragraph" delay={0.3} className="text-lg text-emerald-100">
-                  Phone: {artistInfo.phone}
-                </AnimatedText>
-                <AnimatedText type="paragraph" delay={0.4} className="text-lg text-emerald-100">
-                  Press Inquiries: {artistInfo.pressEmail}
                 </AnimatedText>
               </div>
             </div>
