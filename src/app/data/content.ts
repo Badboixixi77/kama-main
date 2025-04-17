@@ -111,7 +111,7 @@ export const featuredWorks = [
     title: "Whine",
     type: "Single",
     date: "2024",
-    image: "/images/Kama 2.png",
+    image: "/images/Whine.png",
     spotify: "https://open.spotify.com/album/0hJ2rVAGmWvfLwJqfcPgvg",
     ep: "Whine",
     tracks: [
@@ -128,7 +128,7 @@ export const featuredWorks = [
     title: "Maya",
     type: "Single",
     date: "2023",
-    image: "/images/Kama 3.png",
+    image: "/images/Maya.png",
     spotify: "https://open.spotify.com/album/5kxjFivxZf2XjyuGmraZPG",
     ep: "Maya",
     tracks: [
@@ -145,7 +145,7 @@ export const featuredWorks = [
     title: "African Woman",
     type: "Single",
     date: "2024",
-    image: "/images/Kama 1.png",
+    image: "/images/African Woman.png",
     spotify: "https://open.spotify.com/album/2g9KZq7lM0lrEFcxPAUzvm",
     ep: "African Woman",
     tracks: [
@@ -162,7 +162,7 @@ export const featuredWorks = [
     title: "Switch",
     type: "Single",
     date: "2024",
-    image: "/images/The Fisherman.png",
+    image: "/images/Switch.png",
     spotify: "https://open.spotify.com/album/588pdpnP1UH4Bqyi8vH4KD",
     ep: "Switch",
     tracks: [
