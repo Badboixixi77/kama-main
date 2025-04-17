@@ -105,6 +105,74 @@ export const featuredWorks = [
         audioUrl: "/audio/idi-mma.mp3"
       }
     ]
+  },
+  {
+    id: 2,
+    title: "Whine",
+    type: "Single",
+    date: "2024",
+    image: "/images/Kama 2.png",
+    spotify: "https://open.spotify.com/album/0hJ2rVAGmWvfLwJqfcPgvg",
+    ep: "Whine",
+    tracks: [
+      {
+        title: "Whine",
+        duration: "3:11",
+        description: "A vibrant Afro-pop single showcasing Kama's dynamic style",
+        audioUrl: "/audio/whine.mp3"
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "Maya",
+    type: "Single",
+    date: "2023",
+    image: "/images/Kama 3.png",
+    spotify: "https://open.spotify.com/album/5kxjFivxZf2XjyuGmraZPG",
+    ep: "Maya",
+    tracks: [
+      {
+        title: "Maya",
+        duration: "2:15",
+        description: "A melodic fusion of contemporary Afrobeats",
+        audioUrl: "/audio/maya-single.mp3"
+      }
+    ]
+  },
+  {
+    id: 4,
+    title: "African Woman",
+    type: "Single",
+    date: "2024",
+    image: "/images/Kama 1.png",
+    spotify: "https://open.spotify.com/album/2g9KZq7lM0lrEFcxPAUzvm",
+    ep: "African Woman",
+    tracks: [
+      {
+        title: "African Woman",
+        duration: "3:23",
+        description: "A celebration of African beauty and culture",
+        audioUrl: "/audio/african-woman.mp3"
+      }
+    ]
+  },
+  {
+    id: 5,
+    title: "Switch",
+    type: "Single",
+    date: "2024",
+    image: "/images/The Fisherman.png",
+    spotify: "https://open.spotify.com/album/588pdpnP1UH4Bqyi8vH4KD",
+    ep: "Switch",
+    tracks: [
+      {
+        title: "Switch",
+        duration: "2:46",
+        description: "An energetic Afro-pop track with infectious rhythms",
+        audioUrl: "/audio/switch.mp3"
+      }
+    ]
   }
 ];
 
