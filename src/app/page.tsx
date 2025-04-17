@@ -122,12 +122,6 @@ export default function Home() {
                 >
                   {artistInfo.email}
                 </a>
-                <a
-                  href={`mailto:${artistInfo.email}`}
-                  className="block text-emerald-200 hover:text-emerald-300 transition-colors"
-                >
-                  {artistInfo.email}
-                </a>
               </div>
               <div className="space-y-4">
                 <h3 className="text-xl font-semibold mb-4">Follow</h3>
