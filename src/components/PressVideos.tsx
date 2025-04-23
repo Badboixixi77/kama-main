@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { PressVideo } from "../app/data/content";
 
 interface PressVideosProps {
@@ -20,7 +19,7 @@ export default function PressVideos({ videos }: PressVideosProps) {
         >
           Press Videos
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {videos.map((video, index) => (
             <motion.div
               key={video.id}
@@ -30,25 +29,16 @@ export default function PressVideos({ videos }: PressVideosProps) {
               className="bg-indigo-800/30 backdrop-blur-sm rounded-lg overflow-hidden"
             >
               <div className="relative aspect-video">
-                <Image
-                  src={video.thumbnail}
-                  alt={video.title}
-                  fill
-                  className="object-cover"
+                <video
+                  src={video.url}
+                  className="w-full h-full object-cover"
+                  controls
                 />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{video.title}</h3>
-                <p className="text-emerald-200 mb-4">{video.date}</p>
-                <p className="text-gray-300 mb-4">{video.description}</p>
-                <a
-                  href={video.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-emerald-400 hover:text-emerald-300 transition-colors"
-                >
-                  Watch Video
-                </a>
+                <p className="text-emerald-200 mb-2">{video.date}</p>
+                <p className="text-gray-300">{video.description}</p>
               </div>
             </motion.div>
           ))}
