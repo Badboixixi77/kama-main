@@ -24,7 +24,7 @@ interface PressQuote {
   date: string;
 }
 
-interface PressVideo {
+export interface PressVideo {
   id: number;
   title: string;
   url: string;
