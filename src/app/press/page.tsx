@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { pressQuotes, pressPhotos, downloads } from '../data/content';
+import { pressQuotes, pressPhotos, pressVideos, downloads } from '../data/content';
 import Navbar from '../components/Navbar';
 
 export default function Press() {
@@ -57,6 +57,32 @@ export default function Press() {
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <p className="text-sm font-medium">{photo.alt}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Press Videos Section */}
+        <div className="mb-20">
+          <h2 className="text-3xl font-bold text-white mb-8">Press Videos</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {pressVideos.map((video) => (
+              <div
+                key={video.id}
+                className="relative group overflow-hidden rounded-lg bg-indigo-800/30 backdrop-blur-sm"
+              >
+                <div className="relative aspect-video">
+                  <video
+                    src={video.url}
+                    className="w-full h-full object-cover"
+                    controls
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-white mb-2">{video.title}</h3>
+                  <p className="text-emerald-200 mb-2">{video.date}</p>
+                  <p className="text-gray-300">{video.description}</p>
                 </div>
               </div>
             ))}

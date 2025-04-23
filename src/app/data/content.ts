@@ -24,6 +24,15 @@ interface PressQuote {
   date: string;
 }
 
+interface PressVideo {
+  id: number;
+  title: string;
+  url: string;
+  thumbnail: string;
+  date: string;
+  description: string;
+}
+
 export const artistInfo = {
   name: "KAMA",
   email: "officialkamap@gmail.com",
@@ -55,6 +64,25 @@ export const pressQuotes: PressQuote[] = [
     source: "Music In Africa",
     date: "2024",
   },
+];
+
+export const pressVideos: PressVideo[] = [
+  {
+    id: 1,
+    title: "No Love Video",
+    url: "/videos/kama 1.mp4",
+    thumbnail: "/images/Kama 1.png",
+    date: "2024",
+    description: "Official music video for 'No Love'"
+  },
+  {
+    id: 2,
+    title: "Behind the Scenes",
+    url: "/videos/kama 2.mp4",
+    thumbnail: "/images/Kama 2.png",
+    date: "2024",
+    description: "Exclusive behind the scenes footage"
+  }
 ];
 
 export const featuredWorks = [
