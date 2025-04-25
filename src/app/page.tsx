@@ -10,14 +10,14 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-br from-blue-950 to-emerald-900 text-white">
       {/* Background Image */}
       <div className="fixed inset-0 z-0">
-        <Image
+          <Image
           src="/images/Kama 4.png"
           alt="Kama artistic background"
-          fill
+            fill
           className="object-contain opacity-20"
-          priority
-        />
-      </div>
+            priority
+          />
+        </div>
 
       <div className="relative z-10">
         <Navbar />
@@ -41,11 +41,11 @@ export default function Home() {
             >
               Nigerian Afro-pop Artist & Producer
             </motion.p>
-          </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Featured Works */}
-        <section className="py-20 px-4">
+      {/* Featured Works */}
+      <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -58,49 +58,49 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredWorks.map((work, index) => (
                 <motion.div
-                  key={work.id}
+                key={work.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-indigo-800/30 backdrop-blur-sm rounded-lg overflow-hidden"
-                >
+              >
                   <div className="relative aspect-square">
-                    <Image
-                      src={work.image}
-                      alt={work.title}
-                      fill
+                  <Image
+                    src={work.image}
+                    alt={work.title}
+                    fill
                       className="object-cover"
-                    />
+                  />
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-2">{work.title}</h3>
                     <p className="text-emerald-200 mb-4">{work.type} • {work.date}</p>
                     <div className="flex space-x-4">
-                      <a
-                        href={work.spotify}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <a
+                      href={work.spotify}
+                      target="_blank"
+                      rel="noopener noreferrer"
                         className="text-emerald-400 hover:text-emerald-300 transition-colors"
-                      >
+                    >
                         Spotify
-                      </a>
+                    </a>
                       {work.appleMusic && (
-                        <a
-                          href={work.appleMusic}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                    <a
+                      href={work.appleMusic}
+                      target="_blank"
+                      rel="noopener noreferrer"
                           className="text-emerald-400 hover:text-emerald-300 transition-colors"
-                        >
+                    >
                           Apple Music
-                        </a>
+                    </a>
                       )}
                     </div>
                   </div>
                 </motion.div>
-              ))}
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* Contact Section */}
         <section className="py-20 px-4 bg-indigo-900/30">
@@ -123,10 +123,10 @@ export default function Home() {
                   {artistInfo.email}
                 </a>
               </div>
-              <div className="space-y-4">
+            <div className="space-y-4">
                 <h3 className="text-xl font-semibold mb-4">Follow</h3>
                 <div className="flex flex-wrap justify-center gap-4">
-                  <a
+              <a
                     href={artistInfo.socials.instagram}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -139,7 +139,7 @@ export default function Home() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-emerald-200 hover:text-emerald-300 transition-colors"
-                  >
+              >
                     Twitter
                   </a>
                   <a
@@ -149,29 +149,29 @@ export default function Home() {
                     className="text-emerald-200 hover:text-emerald-300 transition-colors"
                   >
                     YouTube
-                  </a>
-                  <a
+              </a>
+              <a
                     href={artistInfo.socials.spotify}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-emerald-200 hover:text-emerald-300 transition-colors"
-                  >
+              >
                     Spotify
-                  </a>
+              </a>
                   <a
                     href={artistInfo.socials.soundcloud}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  target="_blank"
+                  rel="noopener noreferrer"
                     className="text-emerald-200 hover:text-emerald-300 transition-colors"
-                  >
+                >
                     SoundCloud
-                  </a>
+                </a>
                 </div>
               </div>
             </div>
           </div>
         </section>
-      </div>
+        </div>
     </main>
   );
 }
