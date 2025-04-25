@@ -9,6 +9,7 @@ import Image from 'next/image';
 
 export default function Home() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -115,12 +116,25 @@ export default function Home() {
                 Frontend Developer & UI/UX Enthusiast
               </h2>
               <p className="text-base">
-                I create beautiful, responsive, and user-friendly web applications
-                using modern technologies.
+                I specialize in creating beautiful, responsive, and user-friendly web applications
+                using modern frontend technologies like React, Next.js, and TypeScript. I focus on building
+                intuitive interfaces and delivering exceptional user experiences.
               </p>
               <div className="flex gap-3">
-                <button className="btn btn-primary text-sm">View Projects</button>
-                <button className="btn btn-secondary text-sm">Contact Me</button>
+                <a
+                  href="https://github.com/Badboixixi77"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary text-sm"
+                >
+                  GitHub
+                </a>
+                <button 
+                  onClick={() => setShowContactForm(true)}
+                  className="btn btn-secondary text-sm"
+                >
+                  Contact Me
+                </button>
               </div>
             </div>
             <div className="relative h-64 md:h-80">
@@ -142,30 +156,35 @@ export default function Home() {
           <h2 className="text-center mb-8">Skills & Expertise</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="card p-4">
-              <h3 className="text-lg font-semibold mb-3">Frontend</h3>
+              <h3 className="text-lg font-semibold mb-3">Frontend Development</h3>
               <div className="flex flex-wrap gap-1.5">
                 <span className="skill-badge text-xs">React</span>
                 <span className="skill-badge text-xs">Next.js</span>
                 <span className="skill-badge text-xs">TypeScript</span>
                 <span className="skill-badge text-xs">Tailwind CSS</span>
+                <span className="skill-badge text-xs">JavaScript</span>
+                <span className="skill-badge text-xs">HTML5</span>
+                <span className="skill-badge text-xs">CSS3</span>
               </div>
             </div>
             <div className="card p-4">
-              <h3 className="text-lg font-semibold mb-3">Backend</h3>
+              <h3 className="text-lg font-semibold mb-3">UI/UX Design</h3>
               <div className="flex flex-wrap gap-1.5">
-                <span className="skill-badge text-xs">Node.js</span>
-                <span className="skill-badge text-xs">Express</span>
-                <span className="skill-badge text-xs">MongoDB</span>
-                <span className="skill-badge text-xs">PostgreSQL</span>
+                <span className="skill-badge text-xs">Responsive Design</span>
+                <span className="skill-badge text-xs">Figma</span>
+                <span className="skill-badge text-xs">Accessibility</span>
+                <span className="skill-badge text-xs">User Testing</span>
+                <span className="skill-badge text-xs">Wireframing</span>
               </div>
             </div>
             <div className="card p-4">
-              <h3 className="text-lg font-semibold mb-3">Tools</h3>
+              <h3 className="text-lg font-semibold mb-3">Development Tools</h3>
               <div className="flex flex-wrap gap-1.5">
                 <span className="skill-badge text-xs">Git</span>
                 <span className="skill-badge text-xs">VS Code</span>
-                <span className="skill-badge text-xs">Figma</span>
-                <span className="skill-badge text-xs">Docker</span>
+                <span className="skill-badge text-xs">Chrome DevTools</span>
+                <span className="skill-badge text-xs">npm</span>
+                <span className="skill-badge text-xs">Vercel</span>
               </div>
             </div>
           </div>
@@ -179,22 +198,28 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               {
-                title: 'E-commerce Platform',
-                description: 'A full-featured e-commerce platform with product management, cart functionality, and user authentication.',
-                image: '/project1.jpg',
-                tags: ['React', 'Node.js', 'MongoDB'],
+                title: 'Kama Main',
+                description: 'A modern e-commerce platform built with Next.js and Tailwind CSS, featuring product listings, shopping cart, and user authentication.',
+                image: '/kama.png',
+                tags: ['Next.js', 'Tailwind CSS', 'TypeScript'],
+                githubLink: 'https://github.com/Badboixixi77/kama-main.git',
+                liveLink: 'https://kama-main.vercel.app'
               },
               {
-                title: 'Task Management App',
-                description: 'A collaborative task management application with real-time updates and team features.',
-                image: '/project2.jpg',
-                tags: ['Next.js', 'TypeScript', 'Firebase'],
+                title: 'BuySome',
+                description: 'An e-commerce application with a focus on user experience, featuring product filtering, search functionality, and responsive design.',
+                image: '/buysome.png',
+                tags: ['Next.js', 'Tailwind CSS', 'JavaScript'],
+                githubLink: 'https://github.com/Badboixixi77/buysome.git',
+                liveLink: 'https://buysome.vercel.app'
               },
               {
-                title: 'Portfolio Website',
-                description: 'A modern portfolio website showcasing projects and skills with smooth animations.',
-                image: '/project3.jpg',
-                tags: ['React', 'Tailwind CSS', 'Framer Motion'],
+                title: 'SWK',
+                description: 'A web application showcasing modern design principles and interactive features, built with Next.js and Tailwind CSS.',
+                image: '/vercel.svg',
+                tags: ['Next.js', 'Tailwind CSS', 'TypeScript'],
+                githubLink: 'https://github.com/Badboixixi77/swk.git',
+                liveLink: 'https://swk.vercel.app'
               },
             ].map((project, index) => (
               <div key={index} className="card p-4 group">
@@ -210,64 +235,105 @@ export default function Home() {
                 <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-1.5 mb-4">
                   {project.tags.map((tag, tagIndex) => (
                     <span key={tagIndex} className="skill-badge text-xs">
                       {tag}
-                    </span>
-                  ))}
+                      </span>
+                    ))}
+                  </div>
+                <div className="flex gap-2">
+                  <a
+                    href="https://github.com/Badboixixi77"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary text-sm flex-1 text-center"
+                  >
+                    GitHub Profile
+                  </a>
+                    <a
+                    href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    className="btn btn-secondary text-sm flex-1 text-center"
+                    >
+                      Live Demo
+                    </a>
+                  </div>
                 </div>
-              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="section">
-        <div className="container-custom">
-          <h2 className="text-center mb-8">Get in Touch</h2>
-          <div className="max-w-md mx-auto">
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 gap-4">
+      {/* Contact Form Modal */}
+      {showContactForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full"
+          >
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-semibold">Contact Me</h2>
+              <button
+                onClick={() => setShowContactForm(false)}
+                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
+              >
+                ✕
+              </button>
+            </div>
+            <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Name
                   </label>
                   <input
                     type="text"
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 focus:border-transparent"
-                    placeholder="Your name"
+                    id="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
                   />
+                {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                     Email
                   </label>
                   <input
                     type="email"
-                    className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 focus:border-transparent"
-                    placeholder="Your email"
+                    id="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
                   />
-                </div>
+                {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
                   Message
                 </label>
                 <textarea
-                  className="w-full px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-purple-600 dark:focus:ring-purple-400 focus:border-transparent"
-                  rows={3}
-                  placeholder="Your message"
-                ></textarea>
+                  id="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows={4}
+                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+                />
+                {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
               </div>
-              <button type="submit" className="btn btn-primary w-full text-sm">
-                Send Message
-              </button>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                className="w-full btn btn-primary"
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
             </form>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      )}
 
       {/* Toast Notification */}
       {toast && (
