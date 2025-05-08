@@ -1,12 +1,45 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FiCode, FiLayout, FiSmartphone } from 'react-icons/fi';
 
 export default function About() {
   return (
-    <div className="min-h-screen bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen">
+      <section className="section">
+        <div className="container-custom">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="space-y-4">
+              <h1 className="text-4xl md:text-5xl animate-float">About Me</h1>
+              <p className="text-dark-400">
+                I'm a passionate Frontend Developer with a strong focus on creating beautiful,
+                responsive, and user-friendly web applications. My journey in web development
+                started with a curiosity about how websites work, and it has grown into a
+                deep passion for creating exceptional digital experiences.
+              </p>
+              <p className="text-dark-400">
+                I specialize in modern frontend technologies like React, Next.js, and TypeScript,
+                and I'm always eager to learn new technologies and best practices. I believe
+                in writing clean, maintainable code and creating intuitive user interfaces
+                that make a difference.
+              </p>
+            </div>
+            <div className="relative h-64 md:h-80">
+              <Image
+                src="/about.jpg"
+                alt="About Me"
+                fill
+                className="object-cover rounded-xl shadow-lg glass-card"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="min-h-screen bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -87,6 +120,7 @@ export default function About() {
             </motion.div>
           </div>
         </div>
+      </div>
     </div>
   );
 } 

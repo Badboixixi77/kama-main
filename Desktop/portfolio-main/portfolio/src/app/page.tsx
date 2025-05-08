@@ -105,48 +105,169 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="section bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <section className="section">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl animate-float">Maxwell Okosun</h1>
-              <h2 className="text-xl text-gray-600 dark:text-gray-300">
-                Frontend Developer & UI/UX Enthusiast
-              </h2>
-              <p className="text-base">
-                I specialize in creating beautiful, responsive, and user-friendly web applications
-                using modern frontend technologies like React, Next.js, and TypeScript. I focus on building
-                intuitive interfaces and delivering exceptional user experiences.
-              </p>
-              <div className="flex gap-3">
+            <div className="space-y-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="relative"
+              >
+                <h1 className="text-5xl md:text-6xl font-bold mb-4">
+                  <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+                    Maxwell Okosun
+                  </span>
+                </h1>
+                <div className="absolute -top-4 -left-4 w-24 h-24 bg-blue-500/20 rounded-full blur-2xl animate-pulse" />
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-purple-500/20 rounded-full blur-2xl animate-pulse delay-1000" />
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="space-y-4"
+              >
+                <h2 className="text-2xl text-dark-300 font-medium">
+                  <span className="inline-block animate-bounce">👋</span> Frontend Developer & UI/UX Enthusiast
+                </h2>
+                <p className="text-lg text-dark-400 leading-relaxed">
+                  Crafting beautiful, responsive, and user-friendly web experiences with modern technologies.
+                  Passionate about creating intuitive interfaces that make a difference.
+                </p>
+
+                {/* Tech Stack of the Week */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg p-4"
+                >
+                  <h3 className="text-sm font-medium text-dark-300 mb-2">Tech Stack of the Week</h3>
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs px-2 py-1 bg-blue-500/20 rounded-full text-blue-400">Next.js</span>
+                    <span className="text-xs px-2 py-1 bg-purple-500/20 rounded-full text-purple-400">TypeScript</span>
+                    <span className="text-xs px-2 py-1 bg-pink-500/20 rounded-full text-pink-400">Tailwind CSS</span>
+                  </div>
+                </motion.div>
+
+                <div className="flex flex-wrap gap-3">
+                  <span className="skill-badge">React</span>
+                  <span className="skill-badge">Next.js</span>
+                  <span className="skill-badge">TypeScript</span>
+                  <span className="skill-badge">Tailwind CSS</span>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+                className="flex gap-4"
+              >
                 <a
                   href="https://github.com/Badboixixi77"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-primary text-sm"
+                  className="btn btn-primary group"
                 >
-                  GitHub
+                  <span className="flex items-center gap-2">
+                    GitHub
+                    <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </span>
                 </a>
                 <button 
                   onClick={() => setShowContactForm(true)}
-                  className="btn btn-secondary text-sm"
+                  className="btn btn-secondary group"
                 >
-                  Contact Me
+                  <span className="flex items-center gap-2">
+                    Contact Me
+                    <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 4v16m0-16l8 8-8 8" />
+                    </svg>
+                  </span>
                 </button>
+              </motion.div>
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="relative"
+            >
+              <div className="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 animate-pulse" />
+                <Image
+                  src="/flywithxixi-optimized.jpg"
+                  alt="Maxwell Okosun - Frontend Developer"
+                  fill
+                  className="object-cover rounded-2xl transform hover:scale-105 transition-transform duration-500"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-900/50 to-transparent" />
+                
+                {/* Floating Tech Icons */}
+                <motion.div
+                  animate={{
+                    y: [0, -10, 0],
+                    rotate: [0, 5, 0],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute top-4 right-4 w-8 h-8 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center"
+                >
+                  <svg className="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                  </svg>
+                </motion.div>
+                <motion.div
+                  animate={{
+                    y: [0, 10, 0],
+                    rotate: [0, -5, 0],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 1,
+                  }}
+                  className="absolute bottom-4 left-4 w-8 h-8 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center"
+                >
+                  <svg className="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                  </svg>
+                </motion.div>
               </div>
-            </div>
-            <div className="relative h-64 md:h-80">
-              <Image
-                src="/profile.jpg"
-                alt="Profile"
-                fill
-                className="object-cover rounded-xl shadow-lg"
-                priority
-              />
-            </div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full blur-2xl opacity-20 animate-pulse" />
+              <div className="absolute -top-6 -left-6 w-32 h-32 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full blur-2xl opacity-20 animate-pulse delay-1000" />
+            </motion.div>
           </div>
+
+          {/* Currently Working On - Moved here */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="mt-8 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg p-6 border border-blue-500/30 shadow-lg max-w-2xl mx-auto"
+          >
+            <h3 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
+              <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
+              Currently Working On
+            </h3>
+            <p className="text-white/90 text-base">
+              Fly with Xixi - A modern travel platform built with Next.js 14, TypeScript, and Tailwind CSS
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -192,7 +313,7 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="section bg-gray-50 dark:bg-gray-800">
+      <section className="section">
         <div className="container-custom">
           <h2 className="text-center mb-8">Featured Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -232,16 +353,16 @@ export default function Home() {
                   />
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                <p className="text-sm text-dark-400 mb-3">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-4">
                   {project.tags.map((tag, tagIndex) => (
                     <span key={tagIndex} className="skill-badge text-xs">
                       {tag}
-                      </span>
-                    ))}
-                  </div>
+                    </span>
+                  ))}
+                </div>
                 <div className="flex gap-2">
                   <a
                     href="https://github.com/Badboixixi77"
@@ -249,18 +370,18 @@ export default function Home() {
                     rel="noopener noreferrer"
                     className="btn btn-primary text-sm flex-1 text-center"
                   >
-                    GitHub Profile
+                    View Code
                   </a>
-                    <a
+                  <a
                     href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="btn btn-secondary text-sm flex-1 text-center"
-                    >
-                      Live Demo
-                    </a>
-                  </div>
+                  >
+                    Live Demo
+                  </a>
                 </div>
+              </div>
             ))}
           </div>
         </div>
@@ -268,50 +389,42 @@ export default function Home() {
 
       {/* Contact Form Modal */}
       {showContactForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md w-full"
-          >
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold">Contact Me</h2>
-              <button
-                onClick={() => setShowContactForm(false)}
-                className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200"
-              >
-                ✕
-              </button>
-            </div>
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4">
+          <div className="glass-card p-6 max-w-md w-full">
+            <h2 className="text-2xl font-bold mb-4">Contact Me</h2>
             <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
-                </div>
-                <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
-                  />
-                {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium mb-1">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 rounded-lg bg-dark-800/50 border border-dark-700/50 focus:border-primary-500 focus:ring-1 focus:ring-primary-500"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                )}
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                <label htmlFor="email" className="block text-sm font-medium mb-1">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-3 py-2 rounded-lg bg-dark-800/50 border border-dark-700/50 focus:border-primary-500 focus:ring-1 focus:ring-primary-500"
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                )}
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium mb-1">
                   Message
                 </label>
                 <textarea
@@ -319,30 +432,34 @@ export default function Home() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+                  className="w-full px-3 py-2 rounded-lg bg-dark-800/50 border border-dark-700/50 focus:border-primary-500 focus:ring-1 focus:ring-primary-500"
                 />
-                {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
+                {errors.message && (
+                  <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+                )}
               </div>
+              <div className="flex gap-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                className="w-full btn btn-primary"
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                  className="btn btn-primary flex-1"
+                >
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
+                <button
+                  type="button"
+                  onClick={() => setShowContactForm(false)}
+                  className="btn btn-secondary flex-1"
+                >
+                  Cancel
+                </button>
+              </div>
             </form>
-          </motion.div>
+          </div>
         </div>
       )}
 
-      {/* Toast Notification */}
-      {toast && (
-        <Toast
-          message={toast.message}
-          type={toast.type}
-          onClose={() => setToast(null)}
-        />
-      )}
+      {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
 
       {/* Newsletter Section */}
       <Newsletter />

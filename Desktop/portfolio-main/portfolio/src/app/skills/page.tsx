@@ -26,6 +26,7 @@ const skills = [
       { name: 'Accessibility', level: 80 },
       { name: 'User Testing', level: 75 },
       { name: 'Wireframing', level: 80 },
+      { name: 'Adobe Premiere Pro', level: 85 },
     ],
   },
   {
@@ -53,59 +54,35 @@ const skills = [
 
 export default function Skills() {
   return (
-    <div className="min-h-screen bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <h1 className="text-4xl font-bold text-white mb-4">Skills & Expertise</h1>
-          <p className="text-gray-400 text-lg">Technologies and tools I work with</p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {skills.map((category, index) => (
-            <motion.div
-              key={category.category}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-800 rounded-lg p-6"
-            >
-              <div className="flex items-center mb-6">
-                <div className="flex-shrink-0">
-                  {category.icon}
+    <div className="min-h-screen">
+      <section className="section">
+        <div className="container-custom">
+          <h1 className="text-4xl md:text-5xl text-center mb-12 animate-float">Skills & Expertise</h1>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {skills.map((category, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                className="card p-6"
+              >
+                <h2 className="text-xl font-semibold mb-4">{category.category}</h2>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="skill-badge"
+                    >
+                      {skill.name}
+                    </span>
+                  ))}
                 </div>
-                <h2 className="ml-3 text-xl font-semibold text-white">
-                  {category.category}
-                </h2>
-              </div>
-              <div className="space-y-4">
-                {category.skills.map((skill) => (
-                  <div key={skill.name}>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-sm font-medium text-gray-300">
-                        {skill.name}
-                      </span>
-                      <span className="text-sm font-medium text-gray-400">
-                        {skill.level}%
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-700 rounded-full h-2">
-                      <div
-                        className="bg-indigo-500 h-2 rounded-full"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 } 
